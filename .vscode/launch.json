@@ -28,6 +28,15 @@
             "justMyCode": true
         },
         {
+           "name": "Test - mapping",
+           "type": "debugpy",
+           "request": "launch",
+           "module": "unittest",
+           "args": ["tests.test_stream.TestMappingFunctions", "-v"],
+           "console": "integratedTerminal",
+           "justMyCode": true
+        },
+        {
             "name": "Test - All Tests",
             "type": "debugpy",
             "request": "launch",
