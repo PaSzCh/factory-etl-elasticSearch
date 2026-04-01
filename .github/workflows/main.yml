@@ -21,6 +21,11 @@ jobs:
         with:
           python-version: "3.11"
 
+      # --- AQUÍ GENERAMOS LA VARIABLE ---
+      - name: Create lowercase repository name
+        run: |
+          echo "REPO_LC=${GITHUB_REPOSITORY,,}" >> ${GITHUB_ENV}
+
       - name: Login to GHCR
         uses: docker/login-action@v3
         with:
@@ -33,4 +38,5 @@ jobs:
         with:
           context: .
           push: true
-          tags: ghcr.io/${{ github.repository | toLower }}:latest
+          # --- AQUÍ USAMOS LA VARIABLE ---
+          tags: ghcr.io/${{ env.REPO_LC }}:latest
