@@ -65,6 +65,14 @@ services:
       ELASTICSEARCH_HOSTS: http://elasticsearch:9200
     depends_on:
       - elasticsearch
+    
+  processor:
+    image: processor-test
+    env_file: .env
+    container_name: processoryo
+    depends_on:
+      - kafka
+      - elasticsearch
 
 volumes:
   kafka_data:
